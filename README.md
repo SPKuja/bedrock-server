@@ -1,21 +1,18 @@
 # minecraft-bedrock
-Run a bedrock server in a Docker container
+An image to easily run a bedrock server in a Docker container.
 
 This Dockerfile will download the Bedrock Server app and set it up, along with its dependencies.
 
-If you run the container as is, the `worlds` directory will be created inside the container, which is unadvisable. It is highly recommended that you store your worlds outside the container using a mount. It is also likely that you will want to customize your `server.properties` file. The best way to do this is also using a `server.properties` file outside the container using a mount.
+Use the `docker run` command below to set up the server. It assumes you want to store your files in /minecraft (you can change this if you like). It also mounts the `worlds` directory, `server.properties` and `whitelist.json` files so that you won't lose them when you update. 
 
-Here is a `docker run` command that will do that, assuming you have a `worlds` directory and `server.properties` file at `/minecraft`. (You should change the path to wherever your stuff is.)
+You will need to make sure you create the `server.properties` and `whitelist.json` files before running the above, otherwise you will get an error. 
 
     $ sudo docker run -d --name=minecraft\
         -v '/minecraft/worlds:/bedrock-server/worlds'\
         -v '/minecraft/server.properties:/bedrock-server/server.properties'\
+        -v '/minecraft/whitelist.json:/bedrock-server/whitelist.json'\
         --network host\
         --restart=always\
-        nguyer/bedrock-server
+        spkuja/bedrock-server
 
-If you wanted to use custom resource packs, a whitelist, or other things, you could also mount those paths as well. Separating the content from the sever executable means that you can safely destroy your Docker container without losing your world. This will come in handy when there are updates to the server app, and you want to redeploy the container.
-
-Hopefully this is helpful to folks. Happy Minecrafting!
-
- -- nguyer
+If the server file is out of date, send and email to minecraft@glaciergaming.com and I'll make sure it gets updated!
