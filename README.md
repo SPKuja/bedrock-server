@@ -18,3 +18,5 @@ You will need to make sure you create the `server.properties` and `allowlist.jso
 If the server file is out of date, let me know in discord https://discord.gg/SsdncjvQVj and I'll make sure it gets updated!
 
 Since version 1.16.230 "whitelist.json" has been renamed to "allowlist.json" - if upgrading from an older version you may need to update your configuration
+
+Forked from nguyer/bedrock-server - only because it wasn't kept up to date
