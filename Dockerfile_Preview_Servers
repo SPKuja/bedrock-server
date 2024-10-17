@@ -27,4 +27,4 @@ ENV LD_LIBRARY_PATH=.
 EXPOSE 19132/udp
 
 # Run the Minecraft Bedrock server
-CMD ["./bedrock_server"]
+CMD ["/bedrock-server/bedrock_server"]
