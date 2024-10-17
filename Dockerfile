@@ -2,7 +2,7 @@ FROM ubuntu:jammy
 
 # Install necessary packages and clean up to reduce image size
 RUN apt-get update && \
-    apt-get install -y unzip curl libcurl4 libssl1.1 && \
+    apt-get install -y unzip curl libcurl4 libssl3 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
