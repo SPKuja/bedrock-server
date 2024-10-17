@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:jammy
 
 # Install necessary packages and clean up to reduce image size
 RUN apt-get update && \
